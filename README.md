@@ -35,11 +35,8 @@ createdb mb_robotics
 ### 3. Install dependencies
 
 ```bash
-# Server
 cd mb-robotics-v2/server && npm install
-
-# Client
-cd ../client && npm install
+cd mb-robotics-v2/client && npm install
 ```
 
 ### 4. Run database migrations
@@ -52,11 +49,13 @@ This creates all tables and seeds a default admin user (`admin` / `admin123`).
 
 ### 5. Start development servers
 
+Open **two separate terminals** from the repository root:
+
 ```bash
-# Terminal 1 — Express API server
+# Terminal 1 — Express API server (port 3000)
 cd mb-robotics-v2/server && node index.js
 
-# Terminal 2 — Vite dev server
+# Terminal 2 — Vite dev server (port 5173)
 cd mb-robotics-v2/client && npm run dev
 ```
 
