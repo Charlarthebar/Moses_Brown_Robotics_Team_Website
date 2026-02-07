@@ -2,7 +2,7 @@
 
 A full-stack rebuild of the Moses Brown Robotics Team 1784 website using React, Express, and PostgreSQL.
 
-> The original vanilla HTML/CSS/JS version is preserved in `mb-robotics-backend copy/`.
+> The original vanilla HTML/CSS/JS version is preserved in `mb-robotics/`.
 
 ## Tech Stack
 
