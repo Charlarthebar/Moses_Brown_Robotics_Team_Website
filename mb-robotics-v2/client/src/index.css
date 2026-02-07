@@ -166,12 +166,17 @@ a:hover { color: var(--accent-light); }
 .page-header {
   padding: 8rem 2rem 3rem; text-align: center;
 }
+.page-header .section-label {
+  display: block; font-size: 0.95rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 0.75rem;
+}
 .page-header h1 {
   font-size: 3.5rem; font-weight: 900; color: var(--accent-light);
   text-transform: uppercase; text-shadow: 2px 2px 5px var(--shadow);
-  border-bottom: 3px solid var(--border); display: inline-block; padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
-.page-subtitle { color: var(--text-primary); font-size: 1.2rem; margin-top: 0.5rem; }
+.page-subtitle { color: var(--text-secondary); font-size: 1.1rem; margin-top: 0; }
 
 /* ==========================================
    MISSION
