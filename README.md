@@ -1,6 +1,6 @@
 # Moses Brown Robotics Website
 
-The official website for the **Moses Brown School VEX Robotics Team (Team 1784)**. Built to showcase the team, the VEX Robotics competition, and the Moses Brown Y-Lab makerspace.
+The official website for the **Moses Brown School VEX Robotics Team (Team 1784X)**. Built to showcase the team, the VEX Robotics competition, and the Moses Brown Y-Lab makerspace.
 
 ## About
 
