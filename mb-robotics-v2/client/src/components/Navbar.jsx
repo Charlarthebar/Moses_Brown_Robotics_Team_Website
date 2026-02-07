@@ -33,9 +33,9 @@ export default function Navbar() {
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
             {theme === 'dark' ? (
-              <i className="fas fa-sun"></i>
+              <><i className="fas fa-sun"></i> <span className="theme-label">Light</span></>
             ) : (
-              <i className="fas fa-moon"></i>
+              <><i className="fas fa-moon"></i> <span className="theme-label">Dark</span></>
             )}
           </button>
 
