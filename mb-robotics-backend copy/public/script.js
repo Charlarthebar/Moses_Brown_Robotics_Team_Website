@@ -1,87 +1,124 @@
-// Smooth scrolling for anchor links
+// ==========================================
+// MB ROBOTICS - MAIN SCRIPT
+// ==========================================
+
+// --- Smooth scrolling for anchor links ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Sticky navbar
-let navbar = document.querySelector('.custom-navbar');
-let sticky = navbar.offsetTop;
-
-function stickyNavbar() {
-    if (window.pageYOffset > sticky) {
-        navbar.classList.add('sticky');
-    } else {
-        navbar.classList.remove('sticky');
-    }
-}
-
-// Scrolling animations (fade-in elements when they appear in viewport)
-function scrollFadeIn() {
-    const elements = document.querySelectorAll('.fade-in');
-    const scrollY = window.pageYOffset;
-
-    elements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top + scrollY;
-        const elementVisible = 150;
-
-        if (scrollY + window.innerHeight >= elementTop + elementVisible) {
-            el.classList.add('visible');
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
         }
     });
+});
+
+// --- Scroll-triggered fade-in animations (IntersectionObserver) ---
+const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+// --- Back to Top Button ---
+const backToTopBtn = document.getElementById('backToTopBtn');
+
+if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }
 
-// Back to Top Button
+// --- Toast Notification System ---
+function showToast(message, type) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
 
-let backToTopBtn = document.getElementById("backToTopBtn");
+    toast.textContent = message;
+    toast.className = 'toast-notification ' + type + ' show';
 
-function displayBackToTop() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        backToTopBtn.classList.add('show'); 
-    } else {
-        backToTopBtn.classList.remove('show');
-    }
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 4000);
 }
 
+// --- Contact Form (AJAX submission) ---
+const contactForm = document.getElementById('contactForm');
 
-// Combine scroll behaviors into one function
-window.onscroll = function() {
-    stickyNavbar();
-    scrollFadeIn();
-    displayBackToTop();
+if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
+
+        const formData = {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
+
+        try {
+            const response = await fetch('/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                showToast(data.success || 'Message sent!', 'success');
+                contactForm.reset();
+            } else {
+                showToast(data.error || 'Something went wrong.', 'error');
+            }
+        } catch (err) {
+            showToast('Network error. Please try again.', 'error');
+        }
+
+        // Reset button state
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+    });
+}
+
+// --- Feature Card Navigation ---
+const featureRoutes = {
+    '.features-game': 'game.html',
+    '.features-meet-the-team': 'meet-the-team.html',
+    '.features-ylab': 'ylab.html'
 };
 
-// Back to Top Button click event
-backToTopBtn.addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    if (!name || !email || !message) {
-        alert('Please fill out all fields.');
-        e.preventDefault();
+Object.entries(featureRoutes).forEach(([selector, url]) => {
+    const el = document.querySelector(selector);
+    if (el) {
+        el.addEventListener('click', () => window.location.href = url);
+        el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.location.href = url;
+            }
+        });
     }
-});
-
-document.querySelector('.features-game').addEventListener('click', function() {
-    window.location.href = 'game.html';
-});
-
-document.querySelector('.features-meet-the-team').addEventListener('click', function() {
-    window.location.href = 'meet-the-team.html';
-});
-
-document.querySelector('.features-ylab').addEventListener('click', function() {
-    window.location.href = 'ylab.html';
 });
