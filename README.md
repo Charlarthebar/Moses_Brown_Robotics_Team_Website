@@ -1,93 +1,107 @@
-# Moses Brown Robotics Website
+# MB Robotics v2
 
-The official website for the **Moses Brown School VEX Robotics Team (Team 1784X)**. Built to showcase the team, the VEX Robotics competition, and the Moses Brown Y-Lab makerspace.
+A full-stack rebuild of the Moses Brown Robotics Team 1784 website using React, Express, and PostgreSQL.
 
-## About
-
-Moses Brown School competes in **VEX Robotics** with three teams: 1784X (seniors), 1784Y (juniors), and 1784Z (9th graders). This website provides information about the current game season (High Stakes 2024-2025), team photos, and the Y-Lab facility where the team builds and tests their robots.
-
-### Pages
-
-- **Home** — Hero landing, team mission, feature cards, and contact form
-- **The Game** — VEX Robotics High Stakes game rules, robot photos, and official game video
-- **Meet the Team** — Photo gallery of team events and tournaments
-- **The Y-Lab** — Showcase of the 5,000 sq ft makerspace with image carousel
+> The original vanilla HTML/CSS/JS version is preserved in `mb-robotics-backend copy/`.
 
 ## Tech Stack
 
-- **Backend:** Node.js, Express.js
-- **Frontend:** HTML5, CSS3, Vanilla JavaScript
-- **Styling:** Bootstrap 5, Google Fonts (Poppins, Work Sans), Font Awesome
-- **Email:** Nodemailer (Gmail)
-- **Security:** Helmet (HTTP headers), CORS, express-rate-limit
-- **Deployment:** Heroku-ready (Procfile included)
+**Frontend:** React 18, Vite, React Router v6, Framer Motion, React Helmet Async
+**Backend:** Express.js, PostgreSQL, JWT authentication, Nodemailer
+**Features:** Dark/light theme toggle, animated page transitions, image lightbox, PWA support, SEO meta tags, admin dashboard
 
 ## Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v16 or higher)
-- A Gmail account with an [App Password](https://myaccount.google.com/apppasswords) for the contact form
+- Node.js 18+
+- PostgreSQL 14+
 
-### Installation
+### 1. Set up environment variables
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Charlarthebar/Robotics-Website.git
-   cd Robotics-Website/mb-robotics-backend\ copy
-   ```
+```bash
+cd mb-robotics-v2
+cp .env.example server/.env
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+Edit `server/.env` with your PostgreSQL connection string, JWT secret, and email credentials.
 
-3. Create a `.env` file in the `mb-robotics-backend copy/` directory:
-   ```
-   EMAIL_USER=your-email@gmail.com
-   EMAIL_PASS=your-gmail-app-password
-   EMAIL_TO=your-email@gmail.com
-   PORT=3000
-   ```
+### 2. Create the database
 
-4. Start the server:
-   ```bash
-   npm start
-   ```
+```bash
+createdb mb_robotics
+```
 
-5. Open your browser and go to:
-   ```
-   http://localhost:3000
-   ```
+### 3. Install dependencies
+
+```bash
+# Server
+cd mb-robotics-v2/server && npm install
+
+# Client
+cd ../client && npm install
+```
+
+### 4. Run database migrations
+
+```bash
+cd mb-robotics-v2/server && node migrate.js
+```
+
+This creates all tables and seeds a default admin user (`admin` / `admin123`).
+
+### 5. Start development servers
+
+```bash
+# Terminal 1 — Express API server
+cd mb-robotics-v2/server && node index.js
+
+# Terminal 2 — Vite dev server
+cd mb-robotics-v2/client && npm run dev
+```
+
+The Vite dev server proxies `/api` requests to the Express server on port 3000.
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Pages
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Home | `/` | Hero, mission, features, contact form |
+| The Game | `/game` | VEX High Stakes game overview |
+| Meet the Team | `/team` | Photo grid with lightbox |
+| Team Profiles | `/team/profiles` | Individual member bios |
+| Y-Lab | `/ylab` | Makerspace info and photos |
+| Schedule | `/schedule` | Upcoming events calendar |
+| Results | `/results` | Tournament history and awards |
+| Blog | `/blog` | News and updates |
+| Admin | `/admin` | Dashboard for managing content |
+
+## Production Build
+
+```bash
+cd mb-robotics-v2/client && npm run build
+```
+
+Set `NODE_ENV=production` in `.env` and the Express server will serve the built React app from `client/dist/`.
 
 ## Project Structure
 
 ```
-mb-robotics-backend copy/
-├── server.js            # Express server with email API and security middleware
-├── package.json         # Dependencies and scripts
-├── Procfile             # Heroku deployment config
-├── .env                 # Environment variables (not tracked in git)
-├── .gitignore
-└── public/
-    ├── main.html        # Home page
-    ├── game.html        # VEX Robotics game page
-    ├── meet-the-team.html  # Team photo gallery
-    ├── ylab.html        # Y-Lab makerspace page
-    ├── 404.html         # Custom 404 error page
-    ├── styles.css       # All styles (responsive, 4 breakpoints)
-    ├── script.js        # AJAX form, animations, toast notifications
-    └── images/          # Team photos, robot images, facility photos
+mb-robotics-v2/
+├── client/                 # React frontend (Vite)
+│   ├── public/             # Static assets, images, PWA files
+│   └── src/
+│       ├── components/     # Navbar, Footer, Lightbox, Toast, PageTransition
+│       ├── context/        # ThemeContext (dark/light mode)
+│       └── pages/          # All page components
+├── server/                 # Express backend
+│   ├── routes/             # API route handlers
+│   ├── middleware/          # JWT auth middleware
+│   ├── db.js               # PostgreSQL connection pool
+│   ├── migrate.js          # Database migration script
+│   └── index.js            # Server entry point
+├── .env.example            # Environment variable template
+└── README.md
 ```
-
-## Features
-
-- Responsive design across desktop, tablet, and mobile (4 breakpoints)
-- AJAX contact form with loading state and toast notifications
-- Scroll-triggered fade-in animations (IntersectionObserver)
-- Rate-limited email endpoint (5 requests per 15 min)
-- Server-side form validation
-- Security headers via Helmet
-- Custom 404 page
-- Back-to-top button
-- Bootstrap 5 collapsible mobile navigation
