@@ -1,0 +1,789 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem; /* Adjust this based on your navbar height */
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #A5D7E8;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #0B2447;
+}
+
+section {
+    /* padding: 1% 1%; */
+    text-align: center;
+}
+
+img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* MAIN PAGE */
+/* Navbar */
+.navbar-brand {
+    padding: 1% 3%;
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    color: #fff;
+    font-family: Poppins;
+}
+
+.custom-navbar {
+    background-color: #0B2447;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-text:hover {
+    color: #A5D7E8;
+    transition: color 0.3s ease-in-out;
+}
+
+.mbsymbol {
+    margin: 0% 5%;
+    width: 2rem;
+    height: auto;
+}
+
+.dropdown-menu {
+    left: 10rem;   /* To override default right alignment */
+    right: 0;     /* Align dropdown to the right edge */
+}
+
+.navbar .dropdown-menu {
+    background-color:#0B2447
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    color: #fff;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    background-color: rgb(12, 186, 225);
+}
+
+.menu {
+    padding: 0 9% 0 0
+}
+
+.contact-us {
+    outline-color: #fff;
+}
+
+button.navbar-toggler:hover {
+    background-color: #A5D7E8;
+    color: #0B2447;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navbar-toggler {
+    color: #fff;
+}
+
+.navbar-toggler-icon {
+    color: #fff
+}
+
+.nav-text:focus, .navbar-brand:focus {
+    color: #fff; 
+    outline: none; 
+}
+
+/* Font Awesome hamburger icon */
+.fas.fa-bars {
+    color: #fff; 
+    font-size: 2.5rem;
+}
+
+/* Main Screen */
+.main {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(images/roboticscover.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+.title {
+    color: white;
+    font-weight: bold;
+    font-size: 4rem;
+    font-family: 'Work Sans', sans-serif;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.title-box {
+    padding: 1%;
+    margin: 18%;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.title-description {
+    font-size: 1.5rem;
+    color: #A5D7E8;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); 
+}
+
+.cartoonrobot-img {
+    width: 50%;
+    height: auto;
+}
+
+.vex-img {
+    width: 50%;
+    height: auto;
+}
+
+/* What Screen */
+#mission {
+    padding: 2% 5%;
+    text-align: center;
+    font-family: 'Alegreya Sans';
+    background-color: #0B2447;
+}
+
+.what-left-box {
+    width: 50%;
+    margin: 2rem 3rem;
+    text-align: left;
+    position: relative;
+    top: 5rem;
+}
+
+.what-right-box {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 30%;
+    bottom: 10rem;
+    left: 55rem;
+}
+
+.vexrobotics-img {
+    width: 100%;
+    height: auto;
+}
+
+.what-title {
+    font-size: 0.7rem;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    outline: rgb(12, 186, 225) none 0px;
+    color: #0cbae1;
+}
+
+.what-goal {
+    font-size: 1.7rem;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 0px;
+    text-transform: none;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.what-text1 {
+    text-align: left;
+    color: #d6e4ed;
+    font-family: Poppins;
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+.what-text2 {
+    text-align: right;
+    color: #A5D7E8;
+    font-size: 1.5rem;
+    line-height: 2;
+}
+
+.what-text3 {
+    text-align: left;
+    color: #A5D7E8;
+    font-size: 1.5rem;
+    line-height: 2;
+}
+
+.what-text1-div {
+    width: 500px;
+}
+
+.what-text2-div {
+    position: relative;
+    width: 500px;
+    left: 750px;
+}
+
+.what-text3-div {
+    width: 500px;
+}
+
+.gamevideolink {
+    text-align: center;
+    color: white;
+
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding: 25%; 
+    text-align: center;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Features Screen */
+
+#features {
+    padding: 2% 5%;
+    text-align: center;
+    font-family: 'Alegreya Sans';
+    background-color: #4576bc;
+
+}
+
+.features-bottom-box {
+    margin: 3rem 0;
+    display: flex;      
+    justify-content: center; 
+
+}
+
+.features-title {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 0px;
+    text-transform: none;
+    color: #fff;
+    padding: 5% 0;
+    height: 5rem;
+}
+
+.features-description {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0px;
+    text-transform: none;
+    margin-top: 10px;
+    color: #d6e4ed;
+}
+
+.features-game, .features-meet-the-team, .features-ylab {
+    margin: 0 1rem; /* Add space between the elements */
+}
+
+    /* Left Box (Game) */
+.features-game {
+    border-color: #fff;   
+    border-width: 2px;     
+    border-style: solid;  
+    width: 30%;
+    background-color:#0B2447;
+    text-align: left;
+    padding: 2rem;
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.features-game:hover {
+    transform: scale(1.05); /* Increase  size by 5% */
+    cursor: pointer;
+}
+
+.game-image {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(images/HighStakesGame.webp);
+    background-size: cover;
+    background-position: center;
+    height: 10rem; 
+    padding: 30%;
+}
+
+
+    /* Middle Box (Meet the Team) */
+.features-meet-the-team {
+    border-color: #fff;   
+    border-width: 2px;    
+    border-style: solid;   
+    width: 30%;
+    background-color:#0B2447;
+    text-align: left;
+    padding: 2rem;
+    transition: transform 0.3s ease; 
+    
+}
+
+.features-meet-the-team:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.team-image {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(images/2023-24TeamMediaDay.JPG);
+    background-size: cover;
+    background-position: center;
+    height: 10rem; 
+    padding: 30%;
+}
+
+
+    /* Right Box (Team History) */
+.features-ylab {
+    border-color: #fff;   
+    border-width: 2px;    
+    border-style: solid; 
+    width: 30%;
+    background-color:#0B2447;
+    text-align: left;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.features-ylab:hover {
+    transform: scale(1.05); 
+    cursor: pointer;
+}
+
+.ylab-image {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(images/ylab.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 10rem; 
+    padding: 30%;
+}
+
+/* Contact Us Screen */
+#contact-us {
+    padding: 2% 5%;
+    text-align: center;
+    font-family: Poppins;
+    background-color:#0B2447;
+    display: flex;
+    justify-content: center; 
+}
+
+.contact-left-box {
+    padding: 1rem 10rem 1rem 1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.contact-form label {
+    color: white !important; /* Change label text to white overriding everything*/
+}
+
+.contact-form-section {
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: #333;
+    text-align: left;
+}
+
+.contact-form input, .contact-form textarea {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid white; 
+    border-radius: 4px; 
+    width: 120%;
+    background-color: #8b8b8b; 
+    color: white; 
+}
+
+.contact-form button {
+    background-color: #8e8e8e;
+    color: #fff;
+    padding: 1rem;
+    margin: 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;
+    align-self: center;
+}
+
+.contact-form button:hover {
+    background-color: #A5D7E8;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none; /* Remove default browser focus outline */
+    border: 2px solid #A5D7E8; 
+}
+
+.ylab-map {
+    padding: 5rem 1rem 1rem 1rem;
+    position: relative
+}
+
+
+/* Y-Lab Screen */
+.ylab-main {
+    padding: 8% 5% 5% 5%;
+    text-align: center;
+    font-family: 'Alegreya Sans';
+    background-color: #4576bc;
+}
+
+.carousel-item {
+    height: auto;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    border-radius: 10%;
+}
+
+.d-block {
+    border-radius: 5%;
+}
+
+.carousel-section .carousel-item img {
+    object-fit: contain; 
+    max-height: 70vh; 
+    width: auto;   
+    margin: 0 auto; 
+  }
+
+.ylab-link {
+    color: #00d5ff
+}
+
+/* When Screen */
+#when {
+    background-color: #0B2447;
+    padding: 2% 5%;
+    text-align: center;
+    font-family: 'Alegreya Sans';
+}
+
+.where-title {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.where-text {
+    color: #A5D7E8;
+    font-size: 1.5rem;
+}
+
+.where-hours {
+    font-size: 3rem;
+    color: #A5D7E8;
+}
+
+/* Join Screen */
+#join {
+    padding: 2% 5%;
+    text-align: center;
+    font-family: 'Alegreya Sans';
+    background-color: #576CBC;
+}
+
+.join-team {
+    display: inline-block;
+}
+
+.join-text {
+    display: inline-block;
+    margin: 2% 5%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .what-text1-div, .what-text2-div, .what-text3-div {
+        width: 100%;
+        position: relative;
+        left: 0;
+        margin: 0 auto;
+    }
+
+    .robot-img, .vexrobotics-img, .robot1-img {
+        width: 100%;
+        position: relative;
+        right: 0;
+        margin: 20px 0;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #4576bc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+
+}
+
+.footer a {
+    color: #A5D7E8;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #fff;
+}
+
+/* Improved Button Class */
+.btn-custom {
+    background-color: #0B2447;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #A5D7E8;
+    transform: scale(1.05); 
+}
+
+/* Back to Top Button */
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #8be0ff;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease-in-out, background-color 0.3s; 
+}
+
+#backToTopBtn.show {
+    display: block;
+    opacity: 1;
+}
+
+#backToTopBtn:hover {
+    background-color: #A5D7E8;
+}
+
+
+/* Fade-in class for elements */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* Sticky navbar */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+
+/* GAME PAGE */
+.game-main { 
+    padding: 2% 5%;
+    text-align: center;
+    font-family: 'Alegreya Sans';
+    background-color: #4576bc;
+    
+}
+
+.game-page-title {
+    font-size: 4rem; 
+    font-weight: 900;
+    color: #A5D7E8; 
+    text-align: center;
+    font-family: Poppins;
+    margin-top: 5rem; 
+    margin-bottom: 1.5rem; 
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+    padding: 1rem 2rem; 
+    border-bottom: 3px solid #0B2447; 
+    display: inline-block; 
+}
+
+
+.game-title {
+    font-size: 0.7rem;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    outline: rgb(12, 186, 225) none 0px;
+    color: #0cbae1;
+}
+
+.game-goal {
+    font-size: 1.7rem;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 0px;
+    text-transform: none;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.game-text {
+    padding: 3% 1% 3% 3%;
+    text-align: left;
+    color: #d6e4ed;
+    font-family: Poppins;
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+.game-row {
+    display: flex;
+    align-items: center;
+    margin: 3% 0;
+    padding: 0 3%
+}
+
+.description {
+    width: 50%;
+}
+
+.robot-img {
+    width: 30%;
+    height: auto;
+    margin: 0 0 0 10rem;
+    align-self: center;
+}
+
+.robot-collaboration {
+    width: 30%;
+    height: auto;
+    align-self: center;
+    margin: 0 0 0 10rem;
+}
+
+.game-video-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+    padding: 2%;
+    background-color: #0B2447;
+}
+
+.game-text.description {
+    width: 100%; 
+    padding-top: 1rem; 
+    font-size: 1.1rem;
+    color: #d6e4ed;
+}
+
+
+.game-video {
+    width: 100%;
+    height: auto;
+    max-width: 1000px; 
+    aspect-ratio: 16 / 9; 
+    margin-top: 3%;
+}
+
+.game-text.description.center {
+    text-align: center;
+}
+
+
+/* MEET THE TEAM PAGE */
+
+.meet-panel-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem; /* Space between photos */
+    margin-top: 2rem;
+}
+
+.photo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%; 
+    text-align: center;
+}
+
+.meet-photo-panel {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.photo-caption {
+    font-size: 1rem;
+    color: #A5D7E8;
+    margin-top: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
