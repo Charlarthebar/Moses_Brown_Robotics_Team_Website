@@ -1,0 +1,9 @@
+{
+  "name": "Moses Brown Robotics",
+  "short_name": "MB Robotics",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B2447",
+  "theme_color": "#0B2447",
+  "description": "Moses Brown School VEX Robotics Team Website"
+}
